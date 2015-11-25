@@ -90,7 +90,7 @@ local function alert_low_battery(percent)
 end
 
 local battery_rex = rex.new([[([^,]{1,3})%]])
-local charge_rex = rex.new([[(on|off]])
+local charge_rex = rex.new([[(on|off)]])
 local function check_battery()
   local acpi_res = get_acpi_res()
   local percent = tonumber(battery_rex:match(acpi_res))
@@ -106,7 +106,7 @@ local function check_battery()
 
   -- Adapter 0 is on charging, then displaying the charging on graph.
   if "on"==charge_rex:match(adapter_res) then
-    statusIcon.tooltip_text = adapter_res
+    statusIcon.tooltip_text = adapter_res..acpi_res
     statusIcon.file = get_charging_battery_file(percent)
   else
     statusIcon.tooltip_text = acpi_res

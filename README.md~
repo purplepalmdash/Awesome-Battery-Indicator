@@ -15,7 +15,6 @@ Install on ArchLinux:
 ```
 $ sudo pacman -S luarocks5.1 gobject-introspection acpi
 $ sudo luarocks-5.1 install battery_status
-$ sudo ln -s /usr/bin/luarocks-5.1 /usr/bin/luarocks
 $ show_battery_status
 ```
 
